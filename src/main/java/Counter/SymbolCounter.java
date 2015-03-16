@@ -10,7 +10,6 @@ public class SymbolCounter {
     public static void main(String []args) {
 	InputStream inputStream = null;
 	Properties prop = new Properties();	
-
 	try {
 		inputStream = new FileInputStream(args[0]); 
 		if (inputStream != null){
@@ -19,7 +18,8 @@ public class SymbolCounter {
 			System.out.println("No data");
 	}	
 	} catch (IOException ex) {
-		ex.printStackTrace();
+		//ex.printStackTrace();
+		System.out.println("No file");
 	}	
 	
 	System.out.println(prop.getProperty("message"));	
