@@ -1,11 +1,13 @@
-<?xml version="1.0"?><project name="Ant-Test" default="main" basedir=".">
+<?xml version="1.0"?><project name="SymbolCounter" default="main" basedir=".">
 
   <property name="src.dir" location="src\main\java\Counter" />
   <property name="dist.dir" location="target" />
   <property name="build.dir" location="target\classes" />
 
   <target name="clean">    
-	<delete dir="${dist.dir}" />  </target>
+	<delete dir="${build.dir}" />  
+	<delete dir="${dist.dir}" />  
+	</target>
   <target name="makedir">     
     <mkdir dir="${dist.dir}" /> 
     <mkdir dir="${build.dir}" /> 
@@ -16,9 +18,13 @@
   </javac>  </target>
 
   <target name="jar" depends="compile">
-    <jar destfile="${dist.dir}\SymbolCounter.jar" basedir="${build.dir}">
-      <manifest> <attribute name="Main-Class" value="SymbolCounter.Main" />
-      </manifest>    </jar>  </target>
+	<jar destfile="${dist.dir}\SymbolCounter.jar" basedir="${build.dir}">
+    <manifest> <attribute name="Main-Class" value="SymbolCounter" />
+    </manifest>    </jar>  
+  </target>
+	  
+  <target name="main" depends="compile, jar"> 
+	<description>Main target</description>   
+	</target>
 
-  <target name="main" depends="compile, jar">
-    <description>Main target</description>  </target></project> 
+</project> 

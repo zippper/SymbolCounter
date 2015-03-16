@@ -12,8 +12,11 @@ public class SymbolCounter {
 	Properties prop = new Properties();	
 	try {
 		inputStream = new FileInputStream(args[0]); 
-		if (inputStream != null){
+		if (inputStream != null && args.length > 0){
 			prop.load(inputStream);
+			System.out.println(prop.getProperty("message"));	
+			System.out.println("Message length = " + getMessageLength(prop.getProperty("message")));
+
 		} else {
 			System.out.println("No data");
 	}	
@@ -21,9 +24,6 @@ public class SymbolCounter {
 		//ex.printStackTrace();
 		System.out.println("No file");
 	}	
-	
-	System.out.println(prop.getProperty("message"));	
-	System.out.println("Message length = " + getMessageLength(prop.getProperty("message")));
 	}
 
 	public static int getMessageLength(String message){
