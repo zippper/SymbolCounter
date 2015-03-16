@@ -23,6 +23,13 @@ public class SymbolCounter {
 	}	
 	
 	System.out.println(prop.getProperty("message"));	
+	System.out.println("Message length = " + getMessageLength(prop.getProperty("message")));
+	}
+
+	public static int getMessageLength(String message){
+
+		return message.length();
+	
 	}
 
 } 
